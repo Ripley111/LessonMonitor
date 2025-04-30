@@ -1,13 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessonMonitor.API", "LessonMonitor.API\LessonMonitor.API.csproj", "{FAD83695-3CB8-4A35-A785-160B66348FF8}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAD83695-3CB8-4A35-A785-160B66348FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD83695-3CB8-4A35-A785-160B66348FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD83695-3CB8-4A35-A785-160B66348FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD83695-3CB8-4A35-A785-160B66348FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EF36ADD5-768D-44C4-AA74-90FC0BB7455A}
+		SolutionGuid = {5FFEA0D4-016E-46E8-8995-BC13A328312A}
 	EndGlobalSection
 EndGlobal
