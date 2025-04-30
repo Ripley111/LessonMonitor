@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using LessonMonitor.API.Attributes;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace LessonMonitor.API.Models
 {
@@ -14,5 +16,8 @@ namespace LessonMonitor.API.Models
 
         [Description("Электронный адрес")]
         public string Email { get; set; }
+
+        [AgeValidation(18, 100)]
+        public int Age { get; set; }
     }
 }

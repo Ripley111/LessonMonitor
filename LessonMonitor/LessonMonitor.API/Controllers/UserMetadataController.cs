@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LessonMonitor.API.Attributes;
+using LessonMonitor.API.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -9,13 +11,36 @@ namespace LessonMonitor.API.Controllers
     public class UserMetadataController : ControllerBase
     {
         [HttpGet("userModelInfo", Name = "GetUserModelInfo")]
-        public IActionResult GetModel()
+        public IActionResult GetModel([FromQuery]int userAge)
         {
             string targetNamespace = "LessonMonitor.API.Models";
             var classes = Assembly.GetExecutingAssembly()
                                   .GetTypes()
                                   .Where(x => x.Namespace == targetNamespace)
                                   .ToList();
+
+            UserModel user = new UserModel
+            {
+                FirstName = "Nikita",
+                SecondName = "Unknown",
+                Email = "nik@mail.ru",
+                Age = userAge
+            };
+
+            var userType = typeof(UserModel);
+            var userProperties = userType.GetProperties();
+
+            foreach (var property in userProperties)
+            {
+                var attributeAgeValidation = property.GetCustomAttribute<AgeValidationAttribute>();
+                if(attributeAgeValidation != null)
+                {
+                    if(attributeAgeValidation.MinValue > user.Age || attributeAgeValidation.MaxValue < user.Age)
+                    {
+                        throw new Exception("User age very small or bigest");
+                    }                        
+                }                
+            }
 
             ClassMetadata metadataInfo = new ClassMetadata();
             foreach (var classType in classes)
